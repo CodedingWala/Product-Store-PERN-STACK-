@@ -3,6 +3,7 @@ import type { Request,Response } from "express"
 import { clerkMiddleware } from '@clerk/express'
 import cors from "cors"
 import { ENV } from "./config/env.ts"
+import userRoute from "./routes/UserRoutes.ts"
 
 
 const app=express()
@@ -15,6 +16,11 @@ app.use(clerkMiddleware())
 app.get("/",(req:Request,res:Response)=>{
         res.send({message:"heloo from the server"})
 })
+
+app.use("/api/user",userRoute)
+app.use("/api/prducts")
+app.use("/api/comments")
+
 
 app.listen(ENV.PORT,()=>{
     console.log("Listening on port: ",ENV.PORT)
