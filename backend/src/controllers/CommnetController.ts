@@ -1,7 +1,7 @@
 import { getAuth } from "@clerk/express";
 import * as querry from "../db/query.ts"
 import type { Request, Response, NextFunction } from "express"
-import { newComment } from "../db/schema.js";
+import type{ newComment } from "../db/schema.ts";
 
 export const createComment = async (req: Request, res: Response) => {
     try {

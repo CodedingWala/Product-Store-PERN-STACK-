@@ -1,7 +1,6 @@
 import type { Request, Response, NextFunction } from "express"
 import * as querry from "../db/query.ts"
 import { getAuth } from "@clerk/express"
-import { newProduct } from "../db/schema.js"
 
 
 export const getAllProducts = async (req: Request, res: Response, next: NextFunction) => {
