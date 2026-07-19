@@ -5,6 +5,7 @@ import * as querries from "../db/query.ts"
 export const asyncUser=async (req:Request,res:Response)=>{
     try {
         const {userId}=getAuth(req)
+        console.log("hit by the frontned")
         if(!userId){
             return res.status(401).json({error:"UnAuthorized"})
         }
@@ -20,7 +21,7 @@ export const asyncUser=async (req:Request,res:Response)=>{
             imageUrl
         })
 
-
+        console.log("user at backend: ",user)
         res.status(201).json(user)
 
     } catch (error) {

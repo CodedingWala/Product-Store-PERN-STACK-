@@ -7,8 +7,18 @@ import Profile from './pages/Profile'
 import CreatePage from './pages/CreatePage'
 import EditProduct from './pages/EditProduct'
 import NavBar from './comonents/NavBar'
+import useAuthReq from './hooks/useAuthReq'
+import useUserSync from './hooks/useUserSync'
+
+
+
+
+
 
 function App() {
+    const { isClerkLoaded, isSignedIn } = useAuthReq()
+    const {isSynced}=useUserSync()
+    if (!isClerkLoaded) return null;
     return (
         <div className='min-h-screen bg-base-100'>
             <NavBar />
