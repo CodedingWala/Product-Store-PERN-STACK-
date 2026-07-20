@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Route, Routes } from 'react-router'
+import { Navigate, Route, Routes } from 'react-router'
 import Home from './pages/Home'
 import ProductPage from './pages/ProductPage'
 import Profile from './pages/Profile'
@@ -26,9 +26,9 @@ function App() {
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path='/product/:id' element={<ProductPage />} />
-                    <Route path='/profile' element={<Profile />} />
-                    <Route path='/create' element={<CreatePage />} />
-                    <Route path='edit/:id' element={<EditProduct />} />
+                    <Route path='/profile' element={isSignedIn?<Profile />:<Navigate to={"/"} />} />
+                    <Route path='/create' element={isSignedIn? <CreatePage />:<Navigate to={"/"} />} />
+                    <Route path='edit/:id' element={isSignedIn?<EditProduct />:<Navigate to={"/"} />} />
                 </Routes>
             </main>
         </div>
