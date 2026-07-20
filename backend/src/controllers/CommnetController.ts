@@ -18,7 +18,7 @@ export const createComment = async (req: Request, res: Response) => {
         if (!existingProduct || existingProduct.userId != userId) {
             return res.status(404).json({ error: "Product not found" })
         }
-
+        console.log("content: ",content," productId: ",productId," userId: ",userId)
         const comment = await querry.createComment({
             content,
             userId,
@@ -40,10 +40,17 @@ export const DeleteComment = async (req: Request, res: Response) => {
 
         if (!userId) return res.status(401).json({ error: "UnAuthorized user" })
 
-        const existingProduct = await querry.getProductById(commentId.toString())
+        const existingComment = await querry.getCommentById(commentId);
+        
+        if (!existingComment) {
+            return res.status(404).json({ error: "Comment not found" });
+        }
 
-        if (!existingProduct || existingProduct.userId != userId) {
-            return res.status(404).json({ error: "Product not found" })
+        // ✅ Check if the user owns the comment
+        if (existingComment.userId !== userId) {
+            return res.status(403).json({ 
+                error: "You can only delete your own comments" 
+            });
         }
 
         await querry.deleteComment(commentId.toString());

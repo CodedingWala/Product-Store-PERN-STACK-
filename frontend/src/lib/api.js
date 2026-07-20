@@ -20,12 +20,13 @@ export const getAllProducts = async () => {
 };
 
 export const getMyproducts=async()=>{
-    const {data}=await api.get("/prducts/my")
+    const {data}=await api.get("/products/my")
     return data
 }
 
 export const getProductById=async(id)=>{
     const {data}=await api.get(`/products/${id}`)
+    console.log("data fetched by server: ",data)
     return data
 }
 
@@ -36,6 +37,7 @@ export const createProduct=async(productdata)=>{
 
 export const updateProduct=async({id,...updatedData})=>{
     const {data}=await api.put(`/products/${id}`,updatedData)
+    console.log("gotten updated product: ",data)
     return data
 }
 
@@ -45,6 +47,7 @@ export const deleteProduct=async(id)=>{
 
 export const createComment=async({productId,content})=>{
     const {data}=await api.post(`/comments/${productId}`,{content})
+    console.log("data from create coment: ",data)
     return data
 }
 
