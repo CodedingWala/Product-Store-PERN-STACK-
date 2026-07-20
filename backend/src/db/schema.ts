@@ -35,7 +35,6 @@ export const userRelation=relations(users,({many})=>({
     comments:many(comments)
 }))
 
-// product Relations
 
 export const productRelation=relations(products,({one ,many})=>({
     user:one(users,{fields:[products.userId],references:[users.id]}),

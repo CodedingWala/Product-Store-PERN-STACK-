@@ -22,7 +22,7 @@ app.get("/",(req:Request,res:Response)=>{
 })
 
 app.use("/api/user",userRoute)
-app.use("/api/prducts",productRoute)
+app.use("/api/products",productRoute)
 app.use("/api/comments",commentRoute)
 
 
