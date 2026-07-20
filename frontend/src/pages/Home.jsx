@@ -1,9 +1,9 @@
 
 import { PackageIcon, SparklesIcon } from "lucide-react";
 import { Link, Navigate, useNavigate } from "react-router";
-import { SignInButton, useAuth, useUser } from "@clerk/clerk-react";
-import LoadingSpinner from "../comonents/LoadingSpinner";
-import ProductCard from "../comonents/ProductCard";
+import { SignInButton, SignUpButton, useAuth, useUser } from "@clerk/clerk-react";
+import LoadingSpinner from "../components/LoadingSpinner";
+import ProductCard from "../components/ProductCard";
 import { useProducts } from "../hooks/useProducts";
 import useAuthReq from "../hooks/useAuthReq";
 
@@ -49,12 +49,12 @@ function HomePage() {
                 Start creating
               </button>
               :
-              <SignInButton mode="modal">
+              <SignUpButton mode="modal">
                 <button className="btn btn-primary">
                   <SparklesIcon className="size-4" />
                   Start Selling
                 </button>
-              </SignInButton>
+              </SignUpButton>
 
             }
           </div>
