@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build":"npm install --prefix backend && npm install --prefix frontend && npm run build --prefix backend && npm run build --prefix frontend ",
+    "build":"npm install --prefix backend --include=dev && npm install --prefix frontend --include=dev && npm run build --prefix backend && npm run build --prefix frontend",
     "start": "npm run db:push --prefix backend &&  npm run start --prefix backend"
   },
   "repository": {
