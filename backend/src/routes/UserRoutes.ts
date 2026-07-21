@@ -1,6 +1,6 @@
 
 import { Router } from "express";
-import { asyncUser } from "../controllers/UserController.ts";
+import { asyncUser } from "../controllers/UserController.js";
 import { requireAuth } from "@clerk/express";
 
 const route=Router()

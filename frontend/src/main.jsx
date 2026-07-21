@@ -12,18 +12,13 @@ if (!PUBLISHABLE_KEY) {
   throw new Error("Missing Publishable Key");
 }
 
-const clerkOptions = {
-  // Use localStorage for session persistence (survives page reloads)
-  // Default is sessionStorage which clears on tab close
-  sessionStorage: window.localStorage,
-}
+
 
 
 const queryClient = new QueryClient()
 
 createRoot(document.getElementById('root')).render(
     <ClerkProvider publishableKey={PUBLISHABLE_KEY}
-    {...clerkOptions}
     >
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>

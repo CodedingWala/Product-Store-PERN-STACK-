@@ -5,6 +5,7 @@ import ThemeSelector from "./ThemeSelector";
 
 function Navbar() {
   const { isSignedIn } = useAuth();
+   console.log("🔵 NavBar isSignedIn:", isSignedIn); 
 
   return (
     <div className="navbar bg-base-300">

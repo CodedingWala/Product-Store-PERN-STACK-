@@ -1,6 +1,6 @@
 import {drizzle} from "drizzle-orm/node-postgres"
-import * as schema from "./schema.ts"
-import { ENV } from "../config/env.ts"
+import * as schema from "./schema.js"
+import { ENV } from "../config/env.js"
 import { Pool } from "pg"
 
 if(!ENV.DB_URL){

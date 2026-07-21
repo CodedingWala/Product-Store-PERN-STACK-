@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from "express"
-import * as querry from "../db/query.ts"
+import * as querry from "../db/query.js"
 import { getAuth } from "@clerk/express"
 
 

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { requireAuth } from "@clerk/express";
-import { createProduct, deleteProduct, getAllProducts, getMyProducts, getProductById, updateProduct } from "../controllers/ProductController.ts";
+import { createProduct, deleteProduct, getAllProducts, getMyProducts, getProductById, updateProduct } from "../controllers/ProductController.js";
 
 const route=Router()
 route.get("/",getAllProducts)

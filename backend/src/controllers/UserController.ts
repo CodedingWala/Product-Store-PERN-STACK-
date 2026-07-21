@@ -1,6 +1,6 @@
 import { getAuth } from "@clerk/express";
 import type { Request, Response } from "express";
-import * as querries from "../db/query.ts"
+import * as querries from "../db/query.js"
 
 export const asyncUser=async (req:Request,res:Response)=>{
     try {

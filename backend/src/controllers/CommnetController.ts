@@ -1,7 +1,7 @@
 import { getAuth } from "@clerk/express";
-import * as querry from "../db/query.ts"
+import * as querry from "../db/query.js"
 import type { Request, Response, NextFunction } from "express"
-import type{ newComment } from "../db/schema.ts";
+import type{ newComment } from "../db/schema.js";
 
 export const createComment = async (req: Request, res: Response) => {
     try {
@@ -15,7 +15,7 @@ export const createComment = async (req: Request, res: Response) => {
         }
         const existingProduct = await querry.getProductById(productId.toString())
 
-        if (!existingProduct || existingProduct.userId != userId) {
+        if (!existingProduct) {
             return res.status(404).json({ error: "Product not found" })
         }
         console.log("content: ",content," productId: ",productId," userId: ",userId)
@@ -40,7 +40,7 @@ export const DeleteComment = async (req: Request, res: Response) => {
 
         if (!userId) return res.status(401).json({ error: "UnAuthorized user" })
 
-        const existingComment = await querry.getCommentById(commentId);
+        const existingComment = await querry.getCommentById(commentId.toString());
         
         if (!existingComment) {
             return res.status(404).json({ error: "Comment not found" });

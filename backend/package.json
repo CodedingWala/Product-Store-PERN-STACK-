@@ -6,6 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon",
+    "build": "tsc",
+    "start": "node dist/index.js",
     "db:push": "drizzle-kit push"
   },
   "keywords": [],
@@ -14,13 +16,16 @@
   "type": "module",
   "dependencies": {
     "@clerk/express": "^1.7.82",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "drizzle-orm": "^0.44.7",
     "express": "^5.2.1",
+    "node-cron": "^4.6.0",
     "pg": "^8.16.3"
   },
   "devDependencies": {
+    "@types/cookie-parser": "^1.4.10",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/pg": "^8.15.6",

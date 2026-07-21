@@ -1,5 +1,5 @@
-import { users, products, comments, type newUser, type newProduct, type newComment } from "./schema.ts"
-import { db } from "./index.ts"
+import { users, products, comments, type newUser, type newProduct, type newComment } from "./schema.js"
+import { db } from "./index.js"
 import { eq } from "drizzle-orm"
 
 
